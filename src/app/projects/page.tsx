@@ -18,7 +18,7 @@ const projects = [
       "Room 本地資料庫，支援分類、標籤與統計查詢",
       "月／年報表以圖表呈現，並可匯出 CSV 備份",
     ],
-    link: "https://github.com",
+    link: "https://github.com/JyoHuang/my-nextjs-portfolio",
   },
   {
     id: "project-2",
