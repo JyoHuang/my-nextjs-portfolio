@@ -2,74 +2,97 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-      <section className="hero-section relative overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--gold-50)] via-white to-stone-50/80 px-6 py-14 text-center shadow-lg dark:from-stone-900/80 dark:via-stone-900/50 dark:to-stone-950/80 sm:px-12 sm:py-20">
-        <div className="pointer-events-none absolute -left-10 top-[-40px] h-40 w-40 rounded-full bg-[var(--gold-200)] opacity-40 blur-3xl dark:opacity-30" />
-        <div className="pointer-events-none absolute -right-10 bottom-[-40px] h-40 w-40 rounded-full bg-[var(--accent)] opacity-40 blur-3xl dark:opacity-30" />
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[var(--gold-600)] hero-badge dark:text-[var(--gold-400)]">
-          Android App 開發者
-        </p>
-        <h1 className="mb-5 text-4xl font-bold tracking-tight text-zinc-900 hero-title dark:text-white sm:text-5xl">
-          你好，我是 Joey
-        </h1>
-        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          專注於 Android 原生開發，用 Kotlin 與 Jetpack 打造流暢好用的 App。
-          喜歡把想法做成產品，這裡有我的經歷與作品，歡迎看看。
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+    <div className="relative min-h-screen bg-[var(--background)] overflow-hidden">
+      {/* 裝飾性背景氣泡 (Light, Fresh Blobs) */}
+      <div className="blob-shape bg-[var(--brand-200)] w-[500px] h-[500px] top-[-100px] left-[-200px]" />
+      <div className="blob-shape bg-[var(--accent-teal)] w-[400px] h-[400px] bottom-[10%] right-[-150px] opacity-20" />
+      <div className="blob-shape bg-[var(--brand-100)] w-[600px] h-[600px] top-[30%] left-[60%] opacity-40" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-32">
+        {/* 清新風格 Hero 區塊 */}
+        <section className="text-center mx-auto max-w-3xl">
+          <div className="animate-in-1 mb-6 inline-flex items-center rounded-full border border-[var(--brand-200)] bg-[var(--brand-50)] px-4 py-1.5 text-sm font-semibold text-[var(--brand-600)] shadow-sm">
+            <span className="mr-2 flex h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
+            Android Developer
+          </div>
+          
+          <h1 className="animate-in-2 mb-8 text-5xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-7xl leading-tight">
+            你好，我是 <span className="text-brand-gradient">Joey</span>
+          </h1>
+          
+          <p className="animate-in-3 mx-auto mb-10 max-w-2xl text-lg md:text-xl font-normal leading-relaxed text-[var(--muted)]">
+            專注於 Android 原生開發，用 Kotlin 與 Jetpack 打造流暢好用的極致體驗。
+            <br className="hidden sm:block" />
+            喜歡將想法雕琢為完美產品，這裡收錄了我的技術軌跡與匠心之作。
+          </p>
+          
+          <div className="animate-in-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Link
+              href="/about"
+              className="w-full sm:w-auto rounded-full bg-[var(--brand-500)] px-10 py-4 text-base font-semibold text-white shadow-[var(--shadow-hover)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--brand-600)] focus:ring-4 focus:ring-[var(--brand-200)]"
+            >
+              立刻探索旅程
+            </Link>
+            <Link
+              href="/projects"
+              className="w-full sm:w-auto rounded-full border-2 border-[var(--brand-200)] bg-white px-10 py-4 text-base font-semibold text-[var(--brand-700)] transition-all duration-300 hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
+            >
+              鑑赏精選作品
+            </Link>
+          </div>
+        </section>
+
+        {/* 模塊區塊：大圓角卡片與留白 (Webnode 特色) */}
+        <section className="mt-28 grid gap-8 md:grid-cols-3">
           <Link
             href="/about"
-            className="rounded-full bg-[var(--gold-500)] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:scale-105 hover:bg-[var(--gold-600)] hover:shadow-lg dark:bg-[var(--gold-500)] dark:hover:bg-[var(--gold-600)]"
+            className="group hover-lift rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[var(--shadow-soft)]"
           >
-            關於我
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--brand-50)] text-3xl text-[var(--brand-500)] transition-transform duration-300 group-hover:scale-110">
+              👤
+            </div>
+            <h2 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
+              關於我
+            </h2>
+            <p className="text-base leading-relaxed text-[var(--muted)]">
+              淬鍊技術，追求卓越。
+              <br/>探索我的學經歷與專業方向。
+            </p>
           </Link>
+
+          <Link
+            href="/skills"
+            className="group hover-lift rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[var(--shadow-soft)]"
+          >
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--brand-50)] text-3xl text-[var(--accent-teal)] transition-transform duration-300 group-hover:scale-110">
+              ⚡️
+            </div>
+            <h2 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
+              技術棧
+            </h2>
+            <p className="text-base leading-relaxed text-[var(--muted)]">
+              精雕細琢的開發工具。
+              <br/>熟悉的語言與現代架構設計。
+            </p>
+          </Link>
+
           <Link
             href="/projects"
-            className="rounded-full border-2 border-[var(--gold-400)] bg-white px-6 py-3 text-sm font-semibold text-[var(--gold-700)] transition hover:scale-105 hover:bg-[var(--gold-50)] dark:border-[var(--gold-500)] dark:bg-transparent dark:text-[var(--gold-400)] dark:hover:bg-[var(--gold-100)]"
+            className="group hover-lift rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[var(--shadow-soft)]"
           >
-            看作品
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--brand-50)] text-3xl text-[var(--accent-purple)] transition-transform duration-300 group-hover:scale-110">
+              💎
+            </div>
+            <h2 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
+              作品專題
+            </h2>
+            <p className="text-base leading-relaxed text-[var(--muted)]">
+              注入靈魂的實際產出。
+              <br/>一覽精心打造的 Android App。
+            </p>
           </Link>
-        </div>
-      </section>
-
-      <section className="mt-20 grid gap-6 sm:grid-cols-3 sm:gap-8">
-        <Link
-          href="/about"
-          className="group hover-lift rounded-2xl border-2 border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-stone-900/60"
-        >
-          <span className="text-3xl" aria-hidden>👤</span>
-          <h2 className="mt-4 font-semibold text-zinc-900 dark:text-white">
-            關於我
-          </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            學經歷、專長與求職方向
-          </p>
-        </Link>
-        <Link
-          href="/skills"
-          className="group hover-lift rounded-2xl border-2 border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-stone-900/60"
-        >
-          <span className="text-3xl" aria-hidden>🛠</span>
-          <h2 className="mt-4 font-semibold text-zinc-900 dark:text-white">
-            技術棧
-          </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            熟悉的語言、框架與工具
-          </p>
-        </Link>
-        <Link
-          href="/projects"
-          className="group hover-lift rounded-2xl border-2 border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-stone-900/60"
-        >
-          <span className="text-3xl" aria-hidden>📱</span>
-          <h2 className="mt-4 font-semibold text-zinc-900 dark:text-white">
-            作品專題
-          </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            實際開發的 App 與專案介紹
-          </p>
-        </Link>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

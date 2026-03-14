@@ -50,65 +50,71 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-      <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
+      <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-5xl">
         作品專題
       </h1>
-      <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+      <p className="mt-4 text-lg text-[var(--muted)]">
         實際開發的 Android App 與專案，展示技術應用與成果。
       </p>
 
-      <ul className="mt-12 space-y-8">
+      <ul className="mt-16 grid gap-8 md:grid-cols-2">
         {projects.map((project) => (
           <li
             key={project.id}
-            className="hover-lift rounded-2xl border-2 border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-stone-900/50 sm:p-8"
+            className="hover-lift rounded-3xl p-8 sm:p-10 flex flex-col h-full shadow-[var(--shadow-soft)]"
           >
-            <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-[var(--foreground)]">
               {project.title}
             </h2>
-            <p className="mt-2 leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="mt-3 leading-relaxed text-[var(--muted)]">
               {project.summary}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
+            
+            <div className="mt-6 flex flex-wrap gap-2">
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full bg-[var(--gold-100)] px-3 py-1 text-xs font-medium text-[var(--gold-700)] dark:text-[var(--gold-400)]"
+                  className="rounded-lg bg-[var(--brand-50)] px-3 py-1 text-xs font-semibold text-[var(--brand-600)]"
                 >
                   {t}
                 </span>
               ))}
             </div>
-            <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
+
+            <ul className="mt-6 flex-grow list-inside list-disc space-y-2 text-sm text-[var(--muted)]">
               {project.highlights.map((h, i) => (
                 <li key={i}>{h}</li>
               ))}
             </ul>
+
             {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block text-sm font-semibold text-[var(--gold-600)] hover:underline dark:text-[var(--gold-400)]"
-              >
-                查看專案 / 下載 →
-              </a>
+              <div className="mt-8">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm font-semibold text-[var(--brand-600)] transition-colors hover:text-[var(--brand-800)] group"
+                >
+                  查看專案 / 下載
+                  <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </div>
             )}
           </li>
         ))}
       </ul>
 
-      <div className="mt-12 flex gap-4">
+      <div className="mt-20 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           href="/skills"
-          className="rounded-full bg-[var(--gold-500)] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:scale-105 hover:bg-[var(--gold-600)] dark:bg-[var(--gold-500)] dark:hover:bg-[var(--gold-600)]"
+          className="rounded-full bg-[var(--brand-500)] px-8 py-3.5 text-base font-semibold text-white shadow-[var(--shadow-hover)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--brand-600)] text-center w-full sm:w-auto"
         >
           看技術棧
         </Link>
         <Link
           href="/about"
-          className="rounded-full border-2 border-[var(--gold-400)] px-5 py-2.5 text-sm font-semibold text-[var(--gold-700)] transition hover:bg-[var(--gold-50)] dark:border-[var(--gold-500)] dark:text-[var(--gold-400)] dark:hover:bg-[var(--gold-100)]"
+          className="rounded-full border border-[var(--brand-200)] bg-white px-8 py-3.5 text-base font-semibold text-[var(--brand-700)] transition-all duration-300 hover:bg-[var(--brand-50)] text-center w-full sm:w-auto"
         >
           關於我
         </Link>

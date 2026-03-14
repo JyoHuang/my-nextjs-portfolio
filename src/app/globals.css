@@ -1,43 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fefdfb;
-  --foreground: #1c1917;
-  /* 活潑白金：較明亮的金與點綴色 */
-  --gold-50: #fffbeb;
-  --gold-100: #fef3c7;
-  --gold-200: #fde68a;
-  --gold-400: #eab308;
-  --gold-500: #ca8a04;
-  --gold-600: #a16207;
-  --gold-700: #854d0e;
-  --accent: #0d9488;
+  /* 明亮清新風 (Bright & Fresh) */
+  --background: #ffffff;
+  --foreground: #1e293b; /* Slate 800 */
+  --muted: #64748b; /* Slate 500 */
+  
+  /* 品牌主色：清新藍 / 靛藍 (Fresh Blue/Indigo) */
+  --brand-50: #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #93c5fd;
+  --brand-400: #60a5fa;
+  --brand-500: #3b82f6; /* 主色調 */
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --brand-800: #1e40af;
+  --brand-900: #1e3a8a;
+  
+  /* 活潑點綴色系 */
+  --accent-teal: #14b8a6;
+  --accent-purple: #8b5cf6;
+  --accent-rose: #f43f5e;
+  
+  --surface: #ffffff;
+  --surface-alt: #f8fafc; /* Slate 50 */
+  --border-light: #e2e8f0; /* Slate 200 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-gold-50: var(--gold-50);
-  --color-gold-100: var(--gold-100);
-  --color-gold-400: var(--gold-400);
-  --color-gold-500: var(--gold-500);
-  --color-gold-600: var(--gold-600);
-  --color-gold-700: var(--gold-700);
-  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-rose: var(--accent-rose);
+  
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border-light: var(--border-light);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* 清新風：輕柔的陰影 */
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 12px 30px -4px rgba(59, 130, 246, 0.15);
 }
 
+/* 強制所有環境都維持明亮清新，不受系統暗色模式干擾 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f0e0d;
-    --foreground: #fafaf9;
-    --gold-100: #422c04;
-    --gold-400: #facc15;
-    --gold-500: #eab308;
-    --gold-600: #fcd34d;
-    --gold-700: #fde047;
-    --accent: #2dd4bf;
+    /* 如果真的需要讓系統黑底變亮，我們在這裡強壓白色，以確保一致的「明亮感」體驗 */
+    --background: #ffffff;
+    --foreground: #1e293b;
+    --surface: #ffffff;
+    --surface-alt: #f8fafc;
+    --border-light: #e2e8f0;
   }
 }
 
@@ -45,41 +76,54 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* 活潑用：按鈕與卡片 hover 微動效 */
-@keyframes subtle-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-}
+/* 輕盈的按鈕與卡片浮動效果 */
 .hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-light);
+  background: var(--surface);
 }
+
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(202, 138, 4, 0.08);
-}
-.dark .hover-lift:hover {
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(234, 179, 8, 0.2);
+  border-color: var(--brand-200);
+  box-shadow: 0 12px 30px -4px rgba(59, 130, 246, 0.15);
 }
 
-/* 首頁 Hero 輕微進場動畫 */
-@keyframes hero-fade-up {
+/* 首頁進場漸顯動畫 */
+@keyframes slide-fade-up {
   0% {
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translateY(24px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
-.hero-section {
-  animation: hero-fade-up 0.7s ease-out;
+
+.animate-in-1 { animation: slide-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-in-2 { animation: slide-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
+.animate-in-3 { animation: slide-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
+.animate-in-4 { animation: slide-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+
+/* 品牌文字漸層色 */
+.text-brand-gradient {
+  background: linear-gradient(135deg, var(--brand-600) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.hero-title {
-  animation: hero-fade-up 0.8s ease-out;
+
+/* 清新氣泡背景裝飾 */
+.blob-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
 }
-.hero-badge {
-  animation: hero-fade-up 0.6s ease-out;
-}
+
