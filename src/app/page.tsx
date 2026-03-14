@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PhoneMockup from "@/components/PhoneMockup";
 
 export default function Home() {
   return (
@@ -8,37 +9,46 @@ export default function Home() {
       <div className="blob-shape bg-[var(--accent-teal)] w-[400px] h-[400px] bottom-[10%] right-[-150px] opacity-20" />
       <div className="blob-shape bg-[var(--brand-100)] w-[600px] h-[600px] top-[30%] left-[60%] opacity-40" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
         {/* 清新風格 Hero 區塊 */}
-        <section className="text-center mx-auto max-w-3xl">
-          <div className="animate-in-1 mb-6 inline-flex items-center rounded-full border border-[var(--brand-200)] bg-[var(--brand-50)] px-4 py-1.5 text-sm font-semibold text-[var(--brand-600)] shadow-sm">
-            <span className="mr-2 flex h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
-            Android Developer
+        <section className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center mb-20 lg:mb-32">
+          {/* 左側：文字與按鈕 */}
+          <div className="text-center lg:text-left mx-auto max-w-2xl lg:mx-0">
+            <div className="animate-in-1 mb-6 inline-flex items-center rounded-full border border-[var(--brand-200)] bg-[var(--brand-50)] px-4 py-1.5 text-sm font-semibold text-[var(--brand-600)] shadow-sm">
+              <span className="mr-2 flex h-2 w-2 rounded-full bg-[var(--brand-500)]"></span>
+              Android Developer
+            </div>
+            
+            <h1 className="animate-in-2 mb-8 text-5xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-7xl leading-[1.15]">
+              你好，我是 <br className="hidden lg:block"/>
+              <span className="text-brand-gradient">Joey</span>
+            </h1>
+            
+            <p className="animate-in-3 mb-10 text-lg md:text-xl font-normal leading-relaxed text-[var(--muted)] max-w-xl mx-auto lg:mx-0">
+              專注於 Android 原生開發，用 Kotlin 與 Jetpack 打造流暢好用的極致體驗。
+              <br className="hidden sm:block" />
+              喜歡將想法雕琢為完美產品，這裡收錄了我的技術軌跡與匠心之作。
+            </p>
+            
+            <div className="animate-in-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
+              <Link
+                href="/about"
+                className="w-full sm:w-auto rounded-full bg-[var(--brand-500)] px-10 py-4 text-base font-semibold text-white shadow-[var(--shadow-hover)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--brand-600)] focus:ring-4 focus:ring-[var(--brand-200)]"
+              >
+                立刻探索旅程
+              </Link>
+              <Link
+                href="/projects"
+                className="w-full sm:w-auto rounded-full border-2 border-[var(--brand-200)] bg-white px-10 py-4 text-base font-semibold text-[var(--brand-700)] transition-all duration-300 hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
+              >
+                鑑赏精選作品
+              </Link>
+            </div>
           </div>
-          
-          <h1 className="animate-in-2 mb-8 text-5xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-7xl leading-tight">
-            你好，我是 <span className="text-brand-gradient">Joey</span>
-          </h1>
-          
-          <p className="animate-in-3 mx-auto mb-10 max-w-2xl text-lg md:text-xl font-normal leading-relaxed text-[var(--muted)]">
-            專注於 Android 原生開發，用 Kotlin 與 Jetpack 打造流暢好用的極致體驗。
-            <br className="hidden sm:block" />
-            喜歡將想法雕琢為完美產品，這裡收錄了我的技術軌跡與匠心之作。
-          </p>
-          
-          <div className="animate-in-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <Link
-              href="/about"
-              className="w-full sm:w-auto rounded-full bg-[var(--brand-500)] px-10 py-4 text-base font-semibold text-white shadow-[var(--shadow-hover)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--brand-600)] focus:ring-4 focus:ring-[var(--brand-200)]"
-            >
-              立刻探索旅程
-            </Link>
-            <Link
-              href="/projects"
-              className="w-full sm:w-auto rounded-full border-2 border-[var(--brand-200)] bg-white px-10 py-4 text-base font-semibold text-[var(--brand-700)] transition-all duration-300 hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
-            >
-              鑑赏精選作品
-            </Link>
+
+          {/* 右側：3D 立體可互動手機 */}
+          <div className="animate-in-3 relative w-full flex justify-center lg:justify-end mt-8 lg:mt-0 perspective-container">
+            <PhoneMockup />
           </div>
         </section>
 
