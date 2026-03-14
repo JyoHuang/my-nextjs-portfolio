@@ -3,11 +3,13 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--gold-50)] via-white to-stone-50/80 px-6 py-14 text-center shadow-lg dark:from-stone-900/80 dark:via-stone-900/50 dark:to-stone-950/80 sm:px-12 sm:py-20">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[var(--gold-600)] dark:text-[var(--gold-400)]">
+      <section className="hero-section relative overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--gold-50)] via-white to-stone-50/80 px-6 py-14 text-center shadow-lg dark:from-stone-900/80 dark:via-stone-900/50 dark:to-stone-950/80 sm:px-12 sm:py-20">
+        <div className="pointer-events-none absolute -left-10 top-[-40px] h-40 w-40 rounded-full bg-[var(--gold-200)] opacity-40 blur-3xl dark:opacity-30" />
+        <div className="pointer-events-none absolute -right-10 bottom-[-40px] h-40 w-40 rounded-full bg-[var(--accent)] opacity-40 blur-3xl dark:opacity-30" />
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[var(--gold-600)] hero-badge dark:text-[var(--gold-400)]">
           Android App 開發者
         </p>
-        <h1 className="mb-5 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
+        <h1 className="mb-5 text-4xl font-bold tracking-tight text-zinc-900 hero-title dark:text-white sm:text-5xl">
           你好，我是 Joey
         </h1>
         <p className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">

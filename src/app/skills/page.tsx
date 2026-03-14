@@ -10,7 +10,8 @@ const skillCategories = [
   {
     title: "程式語言",
     items: ["Kotlin", "Java"],
-    description: "以 Kotlin 為主進行 Android 開發，具備 Java 閱讀與維護能力。",
+    description:
+      "以 Kotlin 為主進行 Android 開發，具備 Java 閱讀與維護能力，能閱讀既有 Java 專案並逐步重構。",
   },
   {
     title: "Android 核心",
@@ -19,8 +20,10 @@ const skillCategories = [
       "Jetpack Compose",
       "View System",
       "Material Design",
+      "第三方 SDK 串接",
     ],
-    description: "熟悉 Android 官方技術棧與 UI 開發方式。",
+    description:
+      "熟悉 Android 官方技術棧與 UI 開發方式，能依產品需求選擇合適的 UI 技術與元件。",
   },
   {
     title: "架構與 Jetpack",
@@ -30,13 +33,28 @@ const skillCategories = [
       "WorkManager",
       "Navigation",
       "Hilt / Dagger",
+      "LiveData / Flow",
     ],
-    description: "使用 Jetpack 元件與常見架構模式建構可維護的 App。",
+    description:
+      "使用常見架構模式與 Jetpack 元件建構可維護的 App，包含資料快取、背景排程與多畫面導覽。",
+  },
+  {
+    title: "網路與資料處理",
+    items: ["RESTful API", "Retrofit", "OkHttp", "JSON / Moshi", "Error Handling"],
+    description:
+      "與後端 API 串接、封裝網路層、處理例外與錯誤回應，維持良好的使用體驗。",
+  },
+  {
+    title: "品質與追蹤",
+    items: ["Unit Test", "Crashlytics", "Firebase Analytics", "Log 分析"],
+    description:
+      "撰寫單元測試、使用追蹤工具觀察使用行為與錯誤來源，持續改善產品品質。",
   },
   {
     title: "協作與工具",
-    items: ["Git", "Gradle", "Android Studio", "Figma 協作"],
-    description: "版本控管、建置與協作流程。",
+    items: ["Git", "Gradle", "Android Studio", "CI / CD", "Figma 協作"],
+    description:
+      "版本控管、建置流程與設計協作，能在團隊中順暢協作並維持穩定釋出。",
   },
 ];
 
